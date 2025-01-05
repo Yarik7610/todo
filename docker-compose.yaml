@@ -1,0 +1,30 @@
+services:
+  client:
+    container_name: "client"
+    build: ./todo-client
+    ports:
+      - 3000:3000
+    volumes:
+      - ./todo-client:/app
+      - /app/node_modules
+  server:
+    container_name: "server"
+    build: ./todo-server
+    env_file: "./todo-server/.env"
+    ports:
+      - 3001:3000
+    volumes:
+      - ./todo-server:/app
+      - /app/node_modules
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:6.0
+    container_name: "mongodb"
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
