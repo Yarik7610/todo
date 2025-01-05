@@ -7,7 +7,7 @@ This is a unioned repo to run both front, back and mongo in docker
 1. Clone this repo
 
 ```bash
-git clone --recurce-submodules https://github.com/Yarik7610/todo.git
+git clone --recurse-submodules https://github.com/Yarik7610/todo.git
 ```
 
 2. See instructions for back part in README.md
